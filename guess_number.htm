@@ -92,6 +92,8 @@
       guessField.value = ''; //empty the value out of the form text field.
       guessField.focus(); //focus it again, ready for the next guess to be entered.
     }
+    
+    guessSubmit.addEventListener('click', checkGuess); //adding an event listener 'click' to the guessSubmit button & the code we want to run when the event occurs (in this case the checkGuess() function.
 
   </script>
 
