@@ -48,8 +48,7 @@
   </body>
 
   <script>
-    var randNum = Math.floor(Math.random() * 100) + 1; //The first variable — randNum — is assigned a random number between 1 and 100, calculated using a mathematical algorithm.
-
+    var randNum = Math.floor(Math.random() * 100) + 1;
     var guesses = document.querySelector('.guesses');
     var lastResult = document.querySelector('.lastResult');
     var lowOrHi = document.querySelector('.lowOrHi');
@@ -57,51 +56,51 @@
     var guessSubmit = document.querySelector('.guessSubmit');
     var guessField = document.querySelector('.guessField');
 
-    var guessCount = 1; //used to keep track of how many guesses the player has had
-    var resetButton; //reset button doesn't exist yet
-
+    var guessCount = 1;
+    var resetButton;
+    
     function checkGuess() {
-      var userGuess = Number(guessField.value); //Declares variable userGuess & sets its value to the current value entered inside the text field. Run this value through the built-in Number() method, just to make sure the value is definitely a number.
+      var userGuess = Number(guessField.value);
 
-      if (guessCount === 1) { // Test whether the guessCount variable = 1 (i.e. whether this is the player's first attempt or not).
-        guesses.textContent = 'Previous guesses: '; //make the guesses paragraph's text content equal to "Previous guesses: ".
+      if (guessCount === 1) {
+        guesses.textContent = 'Previous guesses: ';
       }
 
-      guesses.textContent += userGuess + ' '; //Appends the current userGuess value onto the end of the guesses paragraph.
+      guesses.textContent += userGuess + ' ';
 
-      if (userGuess === randNum) { //Checks whether the user's guess is equal to the randNum.
-        lastResult.textContent = 'Congratulations! You got it right!'; //The player has guessed correctly and the game is won.
-        lastResult.style.backgroundColor = 'green'; //Congratulations message with a nice green color.
-        lowOrHi.textContent = ''; //Clear the contents of the Low/High guess information box.
+      if (userGuess === randNum) {
+        lastResult.textContent = 'Congratulations! You got it right!';
+        lastResult.style.backgroundColor = 'green';
+        lowOrHi.textContent = '';
 
-        setGameOver(); // Yet to be implemented!
-      } else if (guessCount === 10) { //checks whether this turn is the user's last turn.
-        lastResult.textContent = '!!!GAME OVER!!!'; //Game over message.
-        setGameOver(); // Yet to be implemented!
-      } else { //the player didn't guess right, but they have more guesses left.
+        setGameOver();
+      } else if (guessCount === 10) {
+        lastResult.textContent = '!!!GAME OVER!!!';
+        setGameOver();
+      } else {
         lastResult.textContent = 'Wrong!';
         lastResult.style.backgroundColor = 'red';
 
-        if (userGuess < randomNumber) { //check whether the guess was lower than the answer.
+        if (userGuess < randomNumber) {
           lowOrHi.textContent = 'Last guess was low!';
-        } else if (userGuess > randomNumber) { //check whether the guess was higher than the answer.
+        } else if (userGuess > randomNumber) {
           lowOrHi.textContent = 'Last guess was high!';
         }
       }
-      guessCount++; //add 1 to the guessCount variable so the player uses up their turn.
-      guessField.value = ''; //empty the value out of the form text field.
-      guessField.focus(); //focus it again, ready for the next guess to be entered.
+      guessCount++;
+      guessField.value = '';
+      guessField.focus();
     }
 
-    guessSubmit.addEventListener('click', checkGuess); //adding an event listener 'click' to the guessSubmit button & the code we want to run when the event occurs (in this case the checkGuess() function.d
-
+    guessSubmit.addEventListener('click', checkGuess);
+    
     function setGameOver() {
-      guessField.disabled = true; //disabled the form text input by setting the disabled property to true.
-      guessSubmit.disabled = true; // disable the form submit button by setting the disabled property to true.
-      resetButton = document.createElement('button'); //generate a new <button> element.
-      resetButton.textContent = 'Start new game'; //set its text label to "Start new game".
-      document.body.appendChild(resetButton); //add it to the bottom of the existing HTML.
-      resetButton.addEventListener('click', resetGame); //set an event listener on the new button so that when it is clicked, a function called resetGame() is run.
+      guessField.disabled = true;
+      guessSubmit.disabled = true;
+      resetButton = document.createElement('button');
+      resetButton.textContent = 'Start new game';
+      document.body.appendChild(resetButton);
+      resetButton.addEventListener('click', resetGame);
     }
 
   </script>
