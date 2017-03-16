@@ -44,7 +44,17 @@
 
 <script>
 
-  //Reserved for JavaScript action
+  var randNum = Math.floor(Math.random() * 100) + 1; //The first variable — randNum — is assigned a random number between 1 and 100, calculated using a mathematical algorithm.
+  
+  var guesses = document.querySelector('.guesses');
+  var lastResult = document.querySelector('.lastResult');
+  var lowOrHi = document.querySelector('.lowOrHi');
+  
+  var guessSubmit = document.querySelector('.guessSubmit');
+  var guessField = document.querySelector('.guessField');
+  
+  var guessCount = 1; //used to keep track of how many guesses the player has had
+  var resetButton; //reset button doesn't exist yet
 
 </script>
 </html>
