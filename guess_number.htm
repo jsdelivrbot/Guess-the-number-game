@@ -92,8 +92,17 @@
       guessField.value = ''; //empty the value out of the form text field.
       guessField.focus(); //focus it again, ready for the next guess to be entered.
     }
-    
-    guessSubmit.addEventListener('click', checkGuess); //adding an event listener 'click' to the guessSubmit button & the code we want to run when the event occurs (in this case the checkGuess() function.
+
+    guessSubmit.addEventListener('click', checkGuess); //adding an event listener 'click' to the guessSubmit button & the code we want to run when the event occurs (in this case the checkGuess() function.d
+
+    function setGameOver() {
+      guessField.disabled = true; //disabled the form text input by setting the disabled property to true.
+      guessSubmit.disabled = true; // disable the form submit button by setting the disabled property to true.
+      resetButton = document.createElement('button'); //generate a new <button> element.
+      resetButton.textContent = 'Start new game'; //set its text label to "Start new game".
+      document.body.appendChild(resetButton); //add it to the bottom of the existing HTML.
+      resetButton.addEventListener('click', resetGame); //set an event listener on the new button so that when it is clicked, a function called resetGame() is run.
+    }
 
   </script>
 
